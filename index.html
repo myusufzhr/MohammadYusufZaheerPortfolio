@@ -2,30 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohammad | Data Portfolio</title>
   <style>
+    /* Background and base */
     body {
-      background-image: url('https://unsplash.com/photos/graphical-user-interface--WXQm_NTK0U');
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('https://images.unsplash.com/photo-1581093588401-4e3e71b9dbf2?auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-position: center;
-      color: white;
-      margin: 0;
-      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
+
+    /* Overlay to darken background for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+
+    /* Navbar styles */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: #1a73e8;
       padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     .logo {
-      color: white;
       font-size: 20px;
       font-weight: bold;
+      color: white;
     }
     .nav-links {
       list-style: none;
@@ -33,6 +50,7 @@
       gap: 20px;
       padding: 0;
       margin: 0;
+      position: relative;
     }
     .nav-links li {
       position: relative;
@@ -41,36 +59,56 @@
       color: white;
       text-decoration: none;
       padding: 8px;
+      display: block;
+      user-select: none;
+    }
+    /* Dropdown container */
+    .dropdown:hover > .dropdown-menu {
+      display: block;
     }
     .dropdown-menu {
       display: none;
       position: absolute;
       background-color: white;
-      top: 35px;
+      color: black;
+      top: 100%;
       left: 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      list-style: none;
-      padding: 10px 0;
       min-width: 150px;
-      z-index: 999;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 5px 0;
+      border-radius: 4px;
+      z-index: 1001;
     }
     .dropdown-menu li a {
-      color: #333;
+      color: black;
       padding: 8px 16px;
-      display: block;
+      white-space: nowrap;
     }
-    .dropdown:hover .dropdown-menu {
-      display: block;
+    .dropdown-menu li a:hover {
+      background-color: #1a73e8;
+      color: white;
     }
+
+    /* Main content container */
     main {
       max-width: 900px;
-      margin: 40px auto;
-      background-color: rgba(0,0,0,0.6);
-      padding: 20px 30px;
+      margin: 60px auto 40px;
+      background: rgba(0,0,0,0.7);
+      padding: 30px 40px;
       border-radius: 10px;
     }
-    h2, h3 {
+
+    /* Section styles */
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
       margin-top: 0;
+      border-bottom: 2px solid #1a73e8;
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin-bottom: 8px;
     }
     a.project-link {
       color: #1a73e8;
@@ -80,44 +118,101 @@
     a.project-link:hover {
       text-decoration: underline;
     }
+
+    /* Footer styles */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1a73e8;
+      color: white;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      main {
+        margin: 80px 15px 60px;
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="navbar">
+    <nav class="navbar">
       <div class="logo">Mohammad's Portfolio</div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li class="dropdown">
-            <a href="#">Projects ▼</a>
-            <ul class="dropdown-menu">
-              <li><a href="#powerbi">Power BI</a></li>
-              <li><a href="#python">Data Modeling</a></li>
-              <li><a href="#sql">SQL Modeling</a></li>
-              <li><a href="#gcp">GCP Pipelines</a></li>
-              <li><a href="#databricks">Databricks</a></li>
-              <li><a href="#casestudies">Case Studies</a></li>
-            </ul>
-          </li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Projects ▼</a>
+          <ul class="dropdown-menu">
+            <li><a href="#powerbi">Power BI</a></li>
+            <li><a href="#gcp">GCP Pipelines</a></li>
+            <li><a href="#sql">SQL Data Modeling</a></li>
+            <li><a href="#python">Python Data Modeling</a></li>
+            <li><a href="#databricks">Databricks</a></li>
+          </ul>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
+  <main id="home">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I’m a data analyst and project manager transitioning into data engineering and architecture. This portfolio showcases my hands-on projects using Power BI, Python, GCP, Databricks, and more.</p>
+    </section>
+
     <section id="projects">
       <h2>Featured Projects</h2>
 
-      <h3>IFRS9 Data Validation</h3>
-      <p>This project uses PySpark and Pandas to validate, reconcile, and transform large-scale IFRS9 regulatory data for attestation and audit readiness.</p>
-      <p><strong>Tools Used:</strong> PySpark, Pandas, Dask, SQL, Power BI</p>
-      <p><a class="project-link" href="https://github.com/myusufzhr/ETL_Data_Reconciliation_Visualization" target="_blank">🔗 View Project on GitHub</a></p>
+      <section id="powerbi">
+        <h3>Power BI Dashboard</h3>
+        <p>Interactive dashboard showing retail risk trends and loss forecasts using Power BI and SQL.</p>
+        <p><strong>Tools:</strong> Power BI, SQL, DAX</p>
+        <p><a class="project-link" href="https://github.com/myusufzhr/PowerBI-Credit-Dashboard" target="_blank">🔗 View Project on GitHub</a></p>
+      </section>
+
+      <section id="gcp">
+        <h3>IFRS9 Data Validation</h3>
+        <p>This project uses PySpark and Pandas to validate, reconcile, and transform large-scale IFRS9 regulatory data for attestation and audit readiness.</p>
+        <p><strong>Tools Used:</strong> PySpark, Pandas, Dask, SQL, Power BI</p>
+        <p><a class="project-link" href="https://github.com/myusufzhr/ETL_Data_Reconciliation_Visualization" target="_blank">🔗 View Project on GitHub</a></p>
+      </section>
+
+      <section id="databricks">
+        <h3>Databricks Pipelines</h3>
+        <p>Automated data pipelines built on Azure Databricks for scalable ETL and data validation workflows.</p>
+        <p><strong>Tools Used:</strong> Databricks, Spark, Python, Azure</p>
+        <p><a class="project-link" href="#" target="_blank">🔗 Coming Soon</a></p>
+      </section>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: madeeha@example.com</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/your-link" target="_blank" style="color:#1a73e8;">View my profile</a></p>
     </section>
   </main>
 
+  <footer>
+    &copy; 2025 Madeeha's Data Portfolio
+  </footer>
+
 </body>
 </html>
+
