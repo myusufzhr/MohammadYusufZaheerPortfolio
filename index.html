@@ -1,85 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  body {
-  background-image: url('https://unsplash.com/photos/graphical-user-interface--WXQm_NTK0U');
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
-}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammad | Data Portfolio</title>
+  <title>Madeeha | Data Portfolio</title>
   <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1581093588401-4e3e71b9dbf2?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
     .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #1a73e8;
-  padding: 15px 30px;
-}
-
-.logo {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 8px;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: white;
-  top: 35px;
-  left: 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  list-style: none;
-  padding: 10px 0;
-  min-width: 150px;
-  z-index: 999;
-}
-
-.dropdown-menu li a {
-  color: #333;
-  padding: 8px 16px;
-  display: block;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a73e8;
+      padding: 15px 30px;
+    }
+    .logo {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 35px;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      list-style: none;
+      padding: 10px 0;
+      min-width: 150px;
+      z-index: 999;
+    }
+    .dropdown-menu li a {
+      color: #333;
+      padding: 8px 16px;
+      display: block;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px 30px;
+      border-radius: 10px;
+    }
+    h2, h3 {
+      margin-top: 0;
+    }
+    a.project-link {
+      color: #1a73e8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a.project-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<main>
-  <section id="projects">
-    <h2>Featured Projects</h2>
-
-    <h3>IFRS9 Data Validation</h3>
-    <p>This project uses PySpark and Pandas to validate, reconcile, and transform large-scale IFRS9 regulatory data for attestation and audit readiness.</p>
-    <p><strong>Tools Used:</strong> PySpark, Pandas, Dask, SQL, Power BI</p>
-    <p><a href="https://github.com/myusufzhr/ETL_Data_Reconciliation_Visualization" target="_blank">🔗 View Project on GitHub</a></p>
-  </section>
-</main>
-
 <body>
 
   <header>
@@ -102,6 +104,17 @@
       </nav>
     </div>
   </header>
+
+  <main>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+
+      <h3>IFRS9 Data Validation</h3>
+      <p>This project uses PySpark and Pandas to validate, reconcile, and transform large-scale IFRS9 regulatory data for attestation and audit readiness.</p>
+      <p><strong>Tools Used:</strong> PySpark, Pandas, Dask, SQL, Power BI</p>
+      <p><a class="project-link" href="https://github.com/myusufzhr/ETL_Data_Reconciliation_Visualization" target="_blank">🔗 View Project on GitHub</a></p>
+    </section>
+  </main>
 
 </body>
 </html>
